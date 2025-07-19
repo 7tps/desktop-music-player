@@ -48,11 +48,39 @@ function updateTrackInfo() {
     if (playlist.length === 0) return;
     
     const currentTrack = playlist[currentTrackIndex];
-    const fileName = currentTrack.split('\\').pop().split('/').pop(); // Get filename from path
-    const nameWithoutExt = fileName.replace(/\.[^/.]+$/, ""); // Remove extension
+    const fileName = currentTrack.split('\\').pop().split('/').pop(); // get filename from path
+    const nameWithoutExt = fileName.replace(/\.[^/.]+$/, ""); // remove extension
     
     document.getElementById('track-title').textContent = nameWithoutExt;
-    document.getElementById('track-artist').textContent = 'Unknown Artist'; // Could be enhanced with metadata
+    document.getElementById('track-artist').textContent = 'Unknown Artist'; // could be enhanced with metadata
+    
+    // update playlist view
+    updatePlaylistView();
+}
+
+// update playlist view
+function updatePlaylistView() {
+    const container = document.getElementById('playlist-container');
+    container.innerHTML = '';
+    
+    playlist.forEach((track, index) => {
+        const fileName = track.split('\\').pop().split('/').pop();
+        const nameWithoutExt = fileName.replace(/\.[^/.]+$/, "");
+        
+        const item = document.createElement('div');
+        item.className = `playlist-item ${index === currentTrackIndex ? 'current' : ''}`;
+        item.innerHTML = `<span class="track-number">${(index + 1).toString().padStart(2, '0')}</span>${nameWithoutExt}`;
+        
+        item.addEventListener('click', () => {
+            currentTrackIndex = index;
+            loadAndPlayTrack();
+            if (!isPlaying) {
+                togglePlayPause(); // start playing if not already playing
+            }
+        });
+        
+        container.appendChild(item);
+    });
 }
 
 // play/pause toggle
@@ -133,9 +161,9 @@ document.getElementById('select-btn').addEventListener('click', async () => {
       playlist = filePaths;
       currentTrackIndex = 0;
       loadAndPlayTrack();
-      console.log('Loaded playlist:', playlist);
+      console.log('loaded playlist:', playlist);
     }
   } catch (error) {
-    console.error('Error selecting files:', error);
+    console.error('error selecting files:', error);
   }
 });

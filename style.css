@@ -84,6 +84,66 @@ body {
   justify-content: center;
 }
 
+#playlist-view {
+  margin: 20px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#playlist-container {
+  padding: 10px;
+}
+
+.playlist-item {
+  color: white;
+  padding: 8px 12px;
+  margin: 2px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  font-size: 12px;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 1px;
+}
+
+.playlist-item:hover {
+  background-color: #333;
+}
+
+.playlist-item.current {
+  background-color: #555;
+  color: #fff;
+}
+
+.playlist-item .track-number {
+  margin-right: 10px;
+  color: #888;
+}
+
+/* custom scrollbar styling */
+#playlist-view::-webkit-scrollbar {
+  width: 12px;
+}
+
+#playlist-view::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 0;
+}
+
+#playlist-view::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 0;
+  border: 1px solid #333;
+}
+
+#playlist-view::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+#playlist-view::-webkit-scrollbar-corner {
+  background: #1a1a1a;
+}
+
 #select-btn-div {
     display: flex;
     justify-content: center;
