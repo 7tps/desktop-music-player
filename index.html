@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<div id="top-menu">
+    <div class="menu-text pixel-font">
+        Music Player
+    </div>
+    <div class="menu-buttons">
+        <button id="min-btn" class="button">
+            <img src="assets/min-btn.png" width="33" height="33">
+        </button>
+        <button id="close-btn" class="button">
+            <img src="assets/close-btn.png" width="33" height="33">
+        </button>
+    </div>
+    
+</div>
+
+
+
+<body>
+    <div id="player-container">
+        <div id="track-info">
+            <div class="track-line">
+                <span id="track-title" class="pixel-font">Track Title</span><span class="dash">-</span><span id="track-artist" class="pixel-font">Artist</span>
+            </div>
+            <div class="time-line">
+                <span id="track-time" class="pixel-font">00:00 / 00:00</span>
+            </div>
+        </div>
+        <div id="player-controls">
+            <button id="prev-btn" class="button">
+                <img src="assets/prev.png" alt="Previous" width="33" height="33">
+            </button>
+            <button id="play-pause-btn" class="button">
+                <img src="assets/play.png" alt="Play/Pause" width="33" height="33">
+            </button>
+            <button id="next-btn" class="button">
+                <img src="assets/next.png" alt="Next" width="33" height="33">
+            </button>
+        </div>
+        <div id="select-btn-div">
+            <button id="select-btn" class="select-btn">
+                <img src="assets/select-btn.png" alt="Select Files">
+            </button>
+        </div>
+    </div>
+</body>
+
+<script src="renderer.js"></script>
+
+</html>
+

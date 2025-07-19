@@ -1,0 +1,90 @@
+body {
+    background-color: black;
+}
+
+#top-menu {
+    -webkit-app-region: drag;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#top-menu .menu-text {
+    text-align: left;
+    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.button {
+    -webkit-app-region: no-drag;
+
+    padding: 0;
+    border: none;      
+    margin: 0;        
+    width: 33px;      
+    height: 33px;
+    background: none;
+}
+
+.select-btn {
+    -webkit-app-region: no-drag;
+
+    padding: 0;
+    border: none;      
+    margin: 0;        
+    width: 117px;      
+    height: 33px;
+    background: none;
+}
+
+.pixel-font {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 0;
+  letter-spacing: 2px;
+}
+
+#player-container {
+  margin-top: 50px; /* Space below the top menu */
+  padding: 20px;
+}
+
+#track-info {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#track-info span {
+  color: white;
+  margin-right: 10px;
+  text-align: center;
+}
+
+#track-info .dash {
+  vertical-align: middle;
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+#player-controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#select-btn-div {
+    display: flex;
+    justify-content: center;
+}
