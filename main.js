@@ -5,7 +5,9 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: 360,
         height: 540,
+        resizable: false,
         frame: false,
+        alwaysOnTop: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
