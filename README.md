@@ -14,6 +14,10 @@ A custom MP3 player built with Electron featuring a retro pixel art aesthetic an
 
 ## Installation
 
+### Option 1: Download Pre-built Executable (Windows)
+Windows users can download the pre-built `MP3 Player.exe` file from the releases section and run it directly - no installation required.
+
+### Option 2: Build from Source
 1. **Clone or download** this project
 2. **Install dependencies**:
    ```
@@ -23,6 +27,51 @@ A custom MP3 player built with Electron featuring a retro pixel art aesthetic an
    ```
    npm start
    ```
+
+## Building the Application
+
+### Prerequisites
+- **Node.js** and **npm** installed
+- **For Mac builds**: macOS computer required (Apple requirement)
+
+### Build Commands
+
+#### Windows (Portable Executable)
+```bash
+npm run build:win
+```
+Creates a portable `.exe` file in the `dist/` folder.
+
+#### macOS (DMG Installer)
+```bash
+npm run build:mac
+```
+Creates a `.dmg` installer file in the `dist/` folder.
+
+#### All Platforms
+```bash
+npm run build
+```
+Builds for all configured platforms.
+
+### Build Output
+
+#### Windows
+- **`MP3 Player 1.0.0.exe`** - Portable executable (no installation required)
+- **`win-unpacked/`** - Unpacked application with all dependencies
+
+#### macOS
+- **`MP3 Player 1.0.0.dmg`** - Disk image installer
+- **`MP3 Player.app`** - Application bundle
+
+### Build Configuration
+
+The app is configured with:
+- **App Name**: "MP3 Player"
+- **Version**: 1.0.0
+- **Windows**: Portable executable target
+- **macOS**: DMG installer with music category
+- **Custom Icons**: Supports `.ico` (Windows) and `.icns` (macOS)
 
 ## Usage
 
@@ -43,6 +92,8 @@ A custom MP3 player built with Electron featuring a retro pixel art aesthetic an
 - **Playlist View**: Scrollable list of all loaded tracks
 - **Current Track**: Highlighted in the playlist view
 
+## Technical Details
+
 ### Built With
 - **Electron**: Cross-platform desktop application framework
 - **HTML5 Audio API**: Native browser audio playback
@@ -55,10 +106,63 @@ A custom MP3 player built with Electron featuring a retro pixel art aesthetic an
 - **FLAC**: Lossless compression
 - **M4A**: Apple's audio format
 
+### Window Properties
+- **Size**: 360x540 pixels (non-resizable)
+- **Frame**: Custom frameless window
+- **Always on Top**: Stays above other applications
+- **Custom Controls**: Minimize and close buttons
+
+## Development
+
+### Project Structure
+The application uses a simple Electron architecture:
+- **Main Process** (`main.js`): Handles window creation and file dialogs
+- **Renderer Process** (`renderer.js`): Manages UI interactions and audio playback
+- **IPC Communication**: Secure communication between processes
+
+### Key Functions
+- `initAudioPlayer()`: Initialize HTML5 Audio API
+- `togglePlayPause()`: Handle play/pause functionality
+- `updatePlaylistView()`: Refresh playlist display
+- `loadAndPlayTrack()`: Load and play selected track
+
+### Build System
+- **electron-builder**: Packaging and distribution
+- **Cross-platform**: Supports Windows and macOS
+- **Portable builds**: No installation required for Windows
+- **Custom icons**: Platform-specific icon formats
+
+## Customization
+
+### Styling
+The app uses a custom pixel art theme with:
+- Dark background (`#181818`)
+- White text with pixel font (Press Start 2P)
+- Custom scrollbar styling
+- Sharp corners and borders
+
+### Adding Features
+- **Metadata Support**: Extract artist/title from audio files
+- **Volume Control**: Add volume slider
+- **Keyboard Shortcuts**: Global hotkeys for playback
+- **Playlist Saving**: Save and load playlists
+
+## Troubleshooting
+
 ### Common Issues
 - **Audio not playing**: Check file format compatibility
 - **Window not appearing**: Ensure Electron is properly installed
 - **File selection not working**: Verify file permissions
+- **Build fails**: Ensure all dependencies are installed
+
+### File Paths
+- Windows: Uses backslashes (`\`) in file paths
+- Cross-platform: Handles both forward and backward slashes
+
+### Build Issues
+- **Mac builds**: Require macOS computer (Apple requirement)
+- **Icon files**: Create `assets/icon.ico` (Windows) and `assets/icon.icns` (macOS)
+- **Large builds**: Generated files can be 100MB+ due to Electron runtime
 
 ## License
 
