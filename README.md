@@ -17,6 +17,8 @@ A custom MP3 player built with Electron featuring a retro pixel art aesthetic an
 ### Option 1: Download Pre-built Executable (Windows)
 Windows users can download the pre-built `MP3 Player.exe` file from the releases section and run it directly - no installation required.
 
+Mac users can download the pre-built `MP3 Player.dmg` file from the releases section and run it directly - no installation required.
+
 ### Option 2: Build from Source
 1. **Clone or download** this project
 2. **Install dependencies**:
